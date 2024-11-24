@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Mulish } from 'next/font/google';
 import "./globals.css";
+import Header from '@/components/header'
+
 
 const mulish = Mulish({
   subsets: ['latin'], 
@@ -9,7 +11,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "GreenShop",
+  title: "GREENSHOP",
   description: "Online shop specializing in plants ",
 };
 
@@ -23,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${mulish.className}`}
       >
+        <Header />
         {children}
       </body>
     </html>
