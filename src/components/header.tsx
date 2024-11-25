@@ -22,7 +22,7 @@ export default function Header() {
 			<div className='container flex justify-between items-center py-4  border-b border-green-custom-transparent'>
 				<div className='flex items-center'>
 					<Link href='/' className='flex items-center'>
-						<Image src={logo} alt='logo' />
+						<Image src={logo} className="w-auto h-auto" alt='logo' />
 					</Link>
 				</div>
 
