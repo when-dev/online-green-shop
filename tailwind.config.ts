@@ -10,8 +10,8 @@ export default {
     extend: {
       colors: {
         green: {
-          "custom": '#46A358',
-          "custom-transparent": 'rgba(70, 163, 88, 0.1)',
+          "custom": '#46a358',
+          "custom-transparent": 'rgba(70, 163, 88, 0.3)',
         },
       },
       container: {

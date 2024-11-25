@@ -23,6 +23,13 @@ export const products = [
     price: 6999,
     oldPrice: null,
     image: '/assets/img/products/product-1.svg',
+    description: 'Стильный флорариум с суккулентами для декора вашего дома.',
+    longDescription:
+      'Флорариум представляет собой геометрическую композицию из суккулентов. Прекрасно впишется в современный интерьер, подчеркивая стиль и уют. Идеален для подарка.',
+    reviews: 19,
+    article: '1995751877966',
+    category: 'Комнатные растения',
+    tags: ['Дом', 'Горшок', 'Растения', 'Суккулент'],
   },
   {
     id: 2,
@@ -30,6 +37,13 @@ export const products = [
     price: 6599,
     oldPrice: null,
     image: '/assets/img/products/product-2.svg',
+    description: 'Элегантное растение с зелеными листьями.',
+    longDescription:
+      'Асплениум Нидус идеально подходит для создания уюта в доме. Прост в уходе и подходит даже для начинающих садоводов.',
+    reviews: 12,
+    article: '1982343456781',
+    category: 'Комнатные растения',
+    tags: ['Дом', 'Растение', 'Листья', 'Уход'],
   },
   {
     id: 3,
@@ -37,6 +51,13 @@ export const products = [
     price: 9499,
     oldPrice: 12999,
     image: '/assets/img/products/product-3.svg',
+    description: 'Яркая и нежная африканская фиалка.',
+    longDescription:
+      'Эта африканская фиалка украсит ваш интерьер своими яркими цветами. Идеальна для украшения подоконников и столов.',
+    reviews: 24,
+    article: '1986758495034',
+    category: 'Комнатные растения',
+    tags: ['Цветы', 'Фиалка', 'Украшение'],
   },
   {
     id: 4,
@@ -44,6 +65,13 @@ export const products = [
     price: 1999,
     oldPrice: null,
     image: '/assets/img/products/product-4.svg',
+    description: 'Уникальное серебристое растение для вашего дома.',
+    longDescription:
+      'Аглаонема Сильвер отличается своими серебристыми листьями. Идеальный выбор для создания стильного интерьера.',
+    reviews: 15,
+    article: '1982237849562',
+    category: 'Комнатные растения',
+    tags: ['Серебристое', 'Растение', 'Уют'],
   },
   {
     id: 5,
@@ -51,6 +79,13 @@ export const products = [
     price: 3999,
     oldPrice: null,
     image: '/assets/img/products/product-5.svg',
+    description: 'Великолепное растение с широкими листьями.',
+    longDescription:
+      'Алоказия Кукулата – это экзотическое растение, которое добавит уникальности вашему дому. Легкое в уходе и стильное.',
+    reviews: 10,
+    article: '1985543421987',
+    category: 'Комнатные растения',
+    tags: ['Экзотика', 'Листья', 'Уход'],
   },
   {
     id: 6,
@@ -58,6 +93,13 @@ export const products = [
     price: 7999,
     oldPrice: null,
     image: '/assets/img/products/product-6.svg',
+    description: 'Современный суккулент в стильном горшке.',
+    longDescription:
+      'Этот суккулент станет отличным дополнением вашего дома. Легкий в уходе, идеально подходит для декора.',
+    reviews: 8,
+    article: '1987789023167',
+    category: 'Комнатные растения',
+    tags: ['Горшок', 'Суккулент', 'Декор'],
   },
   {
     id: 7,
@@ -65,6 +107,13 @@ export const products = [
     price: 2599,
     oldPrice: null,
     image: '/assets/img/products/product-7.svg',
+    description: 'Классическое суккулентное растение для любителей минимализма.',
+    longDescription:
+      'Эхеверия – это растение с красивыми розеточными листьями. Минималистичный выбор для современного интерьера.',
+    reviews: 14,
+    article: '1982346598763',
+    category: 'Комнатные растения',
+    tags: ['Минимализм', 'Суккулент', 'Листья'],
   },
   {
     id: 8,
@@ -72,6 +121,13 @@ export const products = [
     price: 1999,
     oldPrice: null,
     image: '/assets/img/products/product-8.svg',
+    description: 'Инновационный декор из суккулентов.',
+    longDescription:
+      'Современный тетраэдр с суккулентами идеально подходит для стиля лофт. Подойдет для подарка или как элемент декора.',
+    reviews: 18,
+    article: '1989654120983',
+    category: 'Комнатные растения',
+    tags: ['Декор', 'Лофт', 'Суккулент'],
   },
   {
     id: 9,
@@ -79,5 +135,12 @@ export const products = [
     price: 1499,
     oldPrice: null,
     image: '/assets/img/products/product-9.svg',
+    description: 'Простое в уходе растение для дома и офиса.',
+    longDescription:
+      'Толстянка яйцевидная, известная как денежное дерево, станет отличным выбором для дома или офиса. Обладает декоративной и символической ценностью.',
+    reviews: 11,
+    article: '1985497823451',
+    category: 'Комнатные растения',
+    tags: ['Денежное дерево', 'Растение', 'Офис'],
   },
-];
+]
