@@ -9,13 +9,16 @@ import grayStar from '../../../../public/assets/img/icons/gray-star.svg'
 import plus from '../../../../public/assets/img/icons/plus.svg'
 import minus from '../../../../public/assets/img/icons/minus.svg'
 import { useState } from 'react'
+import RelatedProductSlider from '@/components/related-product-slider'
 
 export default function ProductPage() {
-	const { id } = useParams();
-	const productId = parseInt(id as string);
-	const product = products.find(p => p.id === productId);
+	const { id } = useParams()
+	const productId = parseInt(id as string)
+	const product = products.find(p => p.id === productId)
 
-	const [activeTab, setActiveTab] = useState<'description' | 'reviews'>('description');
+	const [activeTab, setActiveTab] = useState<'description' | 'reviews'>(
+		'description'
+	)
 
 	if (!product) {
 		return (
@@ -29,6 +32,8 @@ export default function ProductPage() {
 			</div>
 		)
 	}
+
+	const relatedProducts = products.filter(p => p.id !== productId)
 
 	const renderStars = (rating: number) => {
 		const fullStars = Math.floor(rating)
@@ -89,7 +94,7 @@ export default function ProductPage() {
 						alt={product.name}
 						width={600}
 						height={600}
-						className='rounded-lg object-cover ml-10'
+						className='rounded-lg object-cover'
 					/>
 				</div>
 
@@ -140,7 +145,7 @@ export default function ProductPage() {
 							</button>
 							<span className='text-lg font-medium'>1</span>
 							<button className='w-[33px] h-[33px] text-[16px] bg-green-custom text-white font-bold rounded-full flex items-center justify-center'>
-							<Image src={plus} alt='minus' width={17} height={16} />
+								<Image src={plus} alt='plus' width={17} height={16} />
 							</button>
 						</div>
 
@@ -210,6 +215,11 @@ export default function ProductPage() {
 						<p>Пользователь 2: Рекомендую!</p>
 					</div>
 				)}
+			</div>
+
+			<div className='mt-12'>
+				<h2 className='text-xl font-semibold text-green-custom mb-4 border-b border-green-custom-transparent pb-3'>Похожие</h2>
+				<RelatedProductSlider products={relatedProducts} />
 			</div>
 		</div>
 	)
