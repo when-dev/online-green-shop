@@ -1,9 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import banner from '../../public/assets/img/banner.png'
-import basket from '../../public/assets/img/icons/basket.svg'
-import search from '../../public/assets/img/icons/search.svg'
-import favorites from '../../public/assets/img/icons/favorites.svg'
 import { categories, products, sizes } from '@/utils/data/mockData'
+import ProductCard from '@/components/product-card'
 
 export default function Home() {
 	const totalPages = 4 // временное решение
@@ -92,69 +92,25 @@ export default function Home() {
 
 				<main className='w-3/4'>
 					<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-						{products.slice(0, 9).map(product => (
-							<div
+						{products.map(product => (
+							<ProductCard
 								key={product.id}
-								className='relative group p-4 shadow-sm hover:shadow-lg transition-shadow rounded-lg'
-							>
-								<Image
-									src={product.image}
-									alt={product.name}
-									layout='responsive'
-									width={250}
-									height={250}
-									className='mb-4 rounded-lg'
-								/>
-
-								<div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 rounded-lg'>
-									<button
-										className='p-2 bg-green-custom text-white rounded-full hover:bg-green-600'
-										title='Добавить в корзину'
-									>
-										<Image src={basket} alt='basket' width={24} height={24} />
-									</button>
-									<button
-										className='p-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300'
-										title='Добавить в избранное'
-									>
-										<Image
-											src={favorites}
-											alt='favorites'
-											width={24}
-											height={24}
-										/>
-									</button>
-									<button
-										className='p-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300'
-										title='Поиск'
-									>
-										<Image src={search} alt='search' width={24} height={24} />
-									</button>
-								</div>
-
-								<h3 className='text-lg font-medium text-gray-700 mb-2'>
-									{product.name}
-								</h3>
-								<p className='text-green-custom font-bold'>
-									{product.price.toLocaleString('ru-RU')} руб.
-									{product.oldPrice && (
-										<span className='text-gray-500 line-through ml-2'>
-											{product.oldPrice.toLocaleString('ru-RU')} руб.
-										</span>
-									)}
-								</p>
-							</div>
+								id={product.id}
+								name={product.name}
+								image={product.image}
+								price={product.price}
+								oldPrice={product.oldPrice}
+							/>
 						))}
 					</div>
 				</main>
 			</section>
 
-      {/* Временное решение */}
+			{/* Временное решение */}
 			<section>
 				<div className='flex items-center justify-end gap-2 mt-6'>
-
 					{Array.from({ length: totalPages }, (_, index) => {
-						const page = index + 1 
+						const page = index + 1
 						return (
 							<button
 								key={page}
