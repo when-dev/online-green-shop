@@ -77,37 +77,30 @@ export default function ProductPage() {
 				<Link href='/products' className='hover:underline text-green-custom'>
 					Каталог
 				</Link>{' '}
-				/{' '}
-				<Link
-					href='/indoor-plants'
-					className='hover:underline text-green-custom'
-				>
-					Комнатные растения
-				</Link>{' '}
 				/ <span className='text-gray-800'>{product.name}</span>
 			</nav>
 
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-				<div>
+			<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
+				<div className='relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] mx-auto'>
 					<Image
 						src={product.image}
 						alt={product.name}
-						width={600}
-						height={600}
+						fill
+						objectFit='contain'
 						className='rounded-lg object-cover'
 					/>
 				</div>
 
-				<div>
-					<h1 className='text-3xl font-semibold text-gray-800 mb-4'>
+				<div className='text-center lg:text-left px-4 sm:px-8'>
+					<h1 className='text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4'>
 						{product.name}
 					</h1>
 
-					<div className='flex items-center justify-between mb-2 border-b-green-custom-transparent border-b pb-2'>
-						<p className='text-green-custom text-2xl font-bold'>
+					<div className='flex flex-col sm:flex-row items-center lg:justify-between mb-4 border-b-green-custom-transparent border-b pb-2'>
+						<p className='text-green-custom text-lg sm:text-xl lg:text-2xl font-bold'>
 							{product.price.toLocaleString('ru-RU')} руб.
 							{product.oldPrice && (
-								<span className='text-gray-500 text-lg line-through ml-2'>
+								<span className='text-gray-500 text-sm sm:text-lg line-through ml-2'>
 									{product.oldPrice.toLocaleString('ru-RU')} руб.
 								</span>
 							)}
@@ -116,17 +109,17 @@ export default function ProductPage() {
 					</div>
 
 					<div className='mt-6 flex flex-col gap-2'>
-						<h3 className='text-sm font-semibold text-gray-800'>
+						<h3 className='text-sm sm:text-md font-semibold text-gray-800'>
 							Краткое описание:
 						</h3>
-						<p className='text-sm text-gray-600 '>{product.description}</p>
+						<p className='text-sm text-gray-600'>{product.description}</p>
 					</div>
 
 					<div className='mb-4 mt-6'>
-						<h3 className='text-sm font-semibold text-gray-800 mb-2'>
+						<h3 className='text-sm sm:text-md font-semibold text-gray-800 mb-2'>
 							Размер:
 						</h3>
-						<div className='flex gap-2 text-lg'>
+						<div className='flex justify-center lg:justify-start gap-2 text-sm sm:text-lg'>
 							{['S', 'M', 'L', 'XL'].map(size => (
 								<button
 									key={size}
@@ -138,41 +131,41 @@ export default function ProductPage() {
 						</div>
 					</div>
 
-					<div className='flex items-center gap-6 mb-6'>
-						<div className='flex items-center gap-4'>
+					<div className='flex flex-col lg:flex-row items-center gap-6 mb-6'>
+						<div className='flex items-center gap-2'>
 							<button className='w-[33px] h-[33px] text-[16px] bg-green-custom text-white font-bold rounded-full flex items-center justify-center'>
-								<Image src={minus} alt='minus' width={17} height={16} />
+								<Image src={minus} alt='minus' width={14} height={14} />
 							</button>
 							<span className='text-lg font-medium'>1</span>
 							<button className='w-[33px] h-[33px] text-[16px] bg-green-custom text-white font-bold rounded-full flex items-center justify-center'>
-								<Image src={plus} alt='plus' width={17} height={16} />
+								<Image src={plus} alt='plus' width={14} height={14} />
 							</button>
 						</div>
 
-						<div className='flex gap-4'>
-							<button className='px-6 py-3 bg-green-custom text-white rounded-lg hover:bg-green-600'>
+						<div className='flex flex-col gap-2 w-full lg:flex-row lg:w-auto lg:gap-4'>
+							<button className='px-6 py-3 bg-green-custom text-white rounded-lg hover:bg-green-600 w-full lg:w-auto'>
 								Купить
 							</button>
-							<button className='px-6 py-3 border border-green-custom text-green-custom rounded-lg hover:bg-gray-100'>
+							<button className='px-6 py-3 border border-green-custom text-green-custom rounded-lg hover:bg-gray-100 w-full lg:w-auto'>
 								В корзину
 							</button>
 						</div>
 					</div>
 
-					<div className='mt-14 space-y-4'>
-						<p className='text-sm text-gray-400'>
+					<div className='mt-8 space-y-2 sm:space-y-4'>
+						<p className='text-xs sm:text-sm text-gray-400'>
 							Артикул:{' '}
 							<span className='text-gray-500 font-medium'>
 								{product.article}
 							</span>
 						</p>
-						<p className='text-sm text-gray-400'>
+						<p className='text-xs sm:text-sm text-gray-400'>
 							Категория:{' '}
 							<span className='text-gray-500 font-medium'>
 								{product.category}
 							</span>
 						</p>
-						<p className='text-sm text-gray-400'>
+						<p className='text-xs sm:text-sm text-gray-400'>
 							Теги:{' '}
 							<span className='text-gray-500 font-medium'>
 								{product.tags.join(', ')}
@@ -183,7 +176,7 @@ export default function ProductPage() {
 			</div>
 
 			<div className='mt-12'>
-				<div className='flex gap-4 border-b border-gray-300'>
+				<div className='flex flex-wrap gap-4 border-b border-gray-300 justify-center lg:justify-start'>
 					<button
 						onClick={() => setActiveTab('description')}
 						className={`font-semibold pb-2 ${
@@ -218,7 +211,9 @@ export default function ProductPage() {
 			</div>
 
 			<div className='mt-12'>
-				<h2 className='text-xl font-semibold text-green-custom mb-4 border-b border-green-custom-transparent pb-3'>Похожие</h2>
+				<h2 className='text-lg sm:text-xl font-semibold text-green-custom mb-4 border-b border-green-custom-transparent pb-3'>
+					Похожие
+				</h2>
 				<RelatedProductSlider products={relatedProducts} />
 			</div>
 		</div>

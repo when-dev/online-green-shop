@@ -1,35 +1,35 @@
-import type { Metadata } from "next";
-import { Mulish } from 'next/font/google';
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Mulish } from 'next/font/google'
+import './globals.css'
 import Header from '@/components/header'
-import Footer from '@/components/footer';
-
+import Footer from '@/components/footer'
 
 const mulish = Mulish({
-  subsets: ['latin'], 
-  variable: '--font-mulish', 
-  weight: ['400', '600', '700'],
-});
+	subsets: ['latin'],
+	variable: '--font-mulish',
+	weight: ['400', '600', '700'],
+})
 
 export const metadata: Metadata = {
-  title: "GREENSHOP",
-  description: "Online shop specializing in plants ",
-};
+	title: 'GreenShop',
+	description: 'Online shop specializing in plants ',
+	icons: {
+		icon: './favicon.ico',
+	},
+}
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${mulish.className}`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		<html lang='en'>
+			<body className={`${mulish.className}`}>
+				<Header />
+				{children}
+				<Footer />
+			</body>
+		</html>
+	)
 }
