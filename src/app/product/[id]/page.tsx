@@ -86,8 +86,7 @@ export default function ProductPage() {
 						src={product.image}
 						alt={product.name}
 						fill
-						objectFit='contain'
-						className='rounded-lg object-cover'
+						className='rounded-lg object-contain'
 					/>
 				</div>
 

@@ -21,7 +21,6 @@ export default function ProductCard({
 	price,
 	oldPrice,
 }: ProductCardProps) {
-
 	return (
 		<Link
 			href={`/product/${id}`}
@@ -31,9 +30,8 @@ export default function ProductCard({
 				<Image
 					src={image}
 					alt={name}
-					layout='fill'
-					objectFit='contain'
-					className='rounded-lg'
+					fill
+					className='rounded-lg object-contain'
 				/>
 
 				<div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white/80 rounded-lg'>
@@ -41,19 +39,25 @@ export default function ProductCard({
 						className='p-2 bg-green-custom text-white rounded-full hover:bg-green-600'
 						title='Добавить в корзину'
 					>
-						<Image src={basket} alt='basket' width={24} height={24} />
+						<Image
+							src={basket}
+							alt='basket'
+							className='w-auto h-auto'
+							width={24}
+							height={24}
+						/>
 					</button>
 					<button
 						className='p-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300'
 						title='Добавить в избранное'
 					>
-						<Image src={favorites} alt='favorites' width={24} height={24} />
+						<Image src={favorites} alt='favorites' className="w-auto h-auto" width={24} height={24} />
 					</button>
 					<button
 						className='p-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300'
 						title='Поиск'
 					>
-						<Image src={search} alt='search' width={24} height={24} />
+						<Image src={search} alt='search' className="w-auto h-auto"width={24} height={24} />
 					</button>
 				</div>
 			</div>
