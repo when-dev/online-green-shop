@@ -73,11 +73,8 @@ export default function ProductPage() {
 				<Link href='/' className='hover:underline text-green-custom'>
 					Главная
 				</Link>{' '}
-				/{' '}
-				<Link href='/products' className='hover:underline text-green-custom'>
-					Каталог
-				</Link>{' '}
-				/ <span className='text-gray-800'>{product.name}</span>
+				/ <span className='text-gray-800'>Товары</span> /{' '}
+				<span className='text-gray-800'>{product.name}</span>
 			</nav>
 
 			<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 items-center'>
