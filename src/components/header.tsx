@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,50 +12,59 @@ export default function Header() {
 
 	const navLinks = [
 		{ href: '/', label: 'Главная' },
-		{ href: '/products', label: 'Товары' },
+		{ href: '/product', label: 'Товары' },
 		{ href: '/care', label: 'Уход' },
 		{ href: '/blog', label: 'Блог' },
 	]
 
 	return (
-		<header className=''>
-			<div className='container flex justify-between items-center py-4  border-b border-green-custom-transparent'>
+		<header>
+			<div className='container flex justify-between items-center py-4 border-b border-green-custom-transparent'>
 				<div className='flex items-center'>
 					<Link href='/' className='flex items-center'>
-						<Image src={logo} className="w-auto h-auto" alt='logo' />
+						<Image src={logo} className='w-auto h-auto' alt='logo' />
 					</Link>
 				</div>
 
-				<nav className="hidden md:flex space-x-11">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`relative text-gray-700 hover:text-green-600 font-medium ${
-                pathname === link.href ? 'text-green-600' : ''
-              }`}
-            >
-              {link.label}
-              {pathname === link.href && (
-                <span className="absolute bottom-[-25px] left-0 right-0 h-[3px] bg-green-custom"></span>
-              )}
-            </Link>
-          ))}
-        </nav>
+				<nav className='hidden md:flex space-x-11'>
+					{navLinks.map(link => {
+						const isActive =
+							(link.href === '/' && pathname === '/') || 
+							(link.href === '/product' && pathname.startsWith('/product')) 
 
-				<div className="flex items-center space-x-8">
-          <button className="text-gray-700 hover:text-green-600">
+						return (
+							<Link
+								key={link.href}
+								href={link.href === '/product' ? '/' : link.href} 
+								className={`relative text-gray-700 hover:text-green-600 font-medium ${
+									isActive ? 'text-green-600' : ''
+								}`}
+							>
+								{link.label}
+								{isActive && (
+									<span className='absolute bottom-[-25px] left-0 right-0 h-[3px] bg-green-custom'></span>
+								)}
+							</Link>
+						)
+					})}
+				</nav>
+
+				<div className='flex items-center space-x-8'>
+					<button className='text-gray-700 hover:text-green-600'>
 						<Image src={search} alt='search' />
-          </button>
+					</button>
 
-          <button className="text-gray-700 hover:text-green-600">
+					<button className='text-gray-700 hover:text-green-600'>
 						<Image src={basket} alt='basket' />
-          </button>
+					</button>
 
-          <Link href="/login" className="bg-green-custom text-white font-medium px-8 py-2 rounded-lg hover:bg-green-600">
-            Вход
-          </Link>
-        </div>
+					<Link
+						href='/login'
+						className='bg-green-custom text-white font-medium px-8 py-2 rounded-lg hover:bg-green-600'
+					>
+						Вход
+					</Link>
+				</div>
 			</div>
 		</header>
 	)
