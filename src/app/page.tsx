@@ -7,6 +7,7 @@ import ProductCard from '@/components/product-card'
 import { useState } from 'react'
 
 export default function Home() {
+	const [activeCategory, setActiveCategory] = useState('Комнатные растения')
 	const [filtersVisible, setFiltersVisible] = useState(false)
 	const totalPages = 4 // временное решение
 	const currentPage = 1 // временное решение
@@ -37,20 +38,19 @@ export default function Home() {
 						filtersVisible ? 'block' : 'hidden'
 					} lg:block bg-gray-50 w-full h-full lg:w-1/4 p-4 lg:p-6 rounded-lg shadow-sm`}
 				>
-					<h2 className='text-2xl font-semibold text-gray-800 mb-6'>
-						Категории
-					</h2>
+					<h2 className='text-2xl font-semibold text-gray-800 mb-6'>Категории</h2>
 					{categories.map((category, index) => (
 						<div
 							key={index}
-							className='flex justify-between items-center text-gray-700 group cursor-pointer hover:text-green-custom transition-colors mb-2'
+							className={`flex justify-between items-center text-gray-700 group cursor-pointer mb-2 px-3 py-2 rounded-lg transition-colors ${
+								activeCategory === category.name
+									? 'bg-green-100 text-green-custom font-semibold'
+									: 'hover:bg-gray-100 hover:text-green-custom'
+							}`}
+							onClick={() => setActiveCategory(category.name)}
 						>
-							<span className='group-hover:text-green-custom transition-colors'>
-								{category.name}
-							</span>
-							<span className='text-gray-500 group-hover:text-green-custom transition-colors'>
-								({category.count})
-							</span>
+							<span>{category.name}</span>
+							<span className='text-gray-500'>{`(${category.count})`}</span>
 						</div>
 					))}
 
@@ -64,10 +64,7 @@ export default function Home() {
 								className='w-full accent-green-custom'
 							/>
 							<p className='text-gray-700 text-sm'>
-								Цена:{' '}
-								<span className='text-green-custom'>
-									250 руб. - 15 000 руб.
-								</span>
+								Цена: <span className='text-green-custom'>250 руб. - 15 000 руб.</span>
 							</p>
 						</div>
 					</div>
